@@ -31,7 +31,7 @@ export default function Shop(props) {
             <img width={300} height={300} src={post?.data?.image?.url} />
             {/*<Image width={300} height={300} src={post?.data?.image?.url} loading="lazy" />*/}
             <p>{RichText.asText(post?.data?.title)}</p>
-            <Link href="/products/{post.uid}">
+            <Link href="/products/product">
               <a>
                 <p>More information &rarr;</p>
               </a>
