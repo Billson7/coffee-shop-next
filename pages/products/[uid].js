@@ -1,4 +1,3 @@
-// pages/product/[id].js
 import Link from "next/link";
 import styles from "../../styles/singleProduct.module.css";
 import { client } from "../../prismic-configuration";
