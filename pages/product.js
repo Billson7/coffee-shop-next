@@ -12,7 +12,15 @@ export default function Shop(props) {
       <Head>
         <title>{RichText.asText(props?.product?.data?.headline)}</title>
       </Head>
-
+      <div className={styles.nav}>
+        <Link href="/">
+          <a> Home </a>
+        </Link>{" "}
+        ~~~~~~
+        <Link href="/product">
+          <a> Product </a>
+        </Link>
+      </div>
       <main className={styles.main}>
         <h1 className={styles.title}>
           {RichText.asText(props?.product?.data?.headline)}
@@ -26,13 +34,13 @@ export default function Shop(props) {
       </main>
 
       <div className={styles.grid}>
-        {props?.posts?.results.map(post => (
+        {props?.posts?.results.map((post) => (
           <div key={post?.uid} className={styles.card}>
-            <img width={300} height={300} src={post?.data?.image?.url} />
-            {/*<Image width={300} height={300} src={post?.data?.image?.url} loading="lazy" />*/}
-            <p>{RichText.asText(post?.data?.title)}</p>
-            <Link href="/products/product">
+            <Link href={`/products/${post.uid}`}>
               <a>
+                <img width={300} height={300} src={post?.data?.image?.url} />
+
+                <p>{RichText.asText(post?.data?.title)}</p>
                 <p>More information &rarr;</p>
               </a>
             </Link>
@@ -60,10 +68,11 @@ export async function getStaticProps() {
     Prismic.Predicates.at("document.type", "page"),
     { orderings: "[my.post.date desc]" }
   );
+
   return {
     props: {
       product,
-      posts
-    }
+      posts,
+    },
   };
 }

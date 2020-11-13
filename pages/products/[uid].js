@@ -1,26 +1,29 @@
-import Head from "next/head";
+// pages/product/[id].js
 import Link from "next/link";
-import Image from "next/image";
 import styles from "../../styles/singleProduct.module.css";
-
 import { client } from "../../prismic-configuration";
 import { RichText } from "prismic-reactjs";
+import Prismic from "prismic-javascript";
+import { useRouter } from "next/router";
+import Head from "next/head";
+import Image from "next/image";
+function Product(props) {
+  const router = useRouter();
+  const { uid } = router.query;
 
-export default function Shop(props) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>{props?.posts?.uid}</title>
+        <title>{RichText.asText(props?.posts?.data?.title)}</title>
       </Head>
       <div className={styles.nav}>
         <Link href="/">
           <a> Home </a>
         </Link>{" "}
-        | |
+        ~~~~~~
         <Link href="/product">
           <a> Product </a>
         </Link>
-        | |shit
       </div>
 
       <main className={styles.main}>
@@ -31,9 +34,8 @@ export default function Shop(props) {
           />
         </div>
         <div className={styles.information}>
-          <h1 className={styles.productTitle}>
-            {RichText.asText(props?.posts?.data?.title)}
-          </h1>
+          <h1>{RichText.asText(props?.posts?.data?.title)}</h1>
+          <h3 className={styles.productTitle}>£{props?.posts?.data?.price}</h3>
           <p>{RichText.asText(props?.posts?.data?.description)}</p>
           <div>
             <p>{RichText.render(props?.posts?.data?.coffeeinfo)}</p>
@@ -62,8 +64,22 @@ export default function Shop(props) {
   );
 }
 
-export async function getStaticProps() {
-  const posts = await client.getByUID("page", "coffee-1");
+export default Product;
+export async function getStaticPaths() {
+  const res = await client.query(
+    Prismic.Predicates.at("document.type", "page"),
+    {
+      orderings: "[my.post.date desc]",
+    }
+  );
+
+  const paths = res?.results?.map(({ uid }) => ({ params: { uid } }));
+  return { paths, fallback: false };
+}
+
+export async function getStaticProps({ params }) {
+  const posts = await client.getByUID("page", `${params.uid}`);
+
   return {
     props: {
       posts,
