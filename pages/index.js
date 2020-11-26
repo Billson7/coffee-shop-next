@@ -25,16 +25,7 @@ export default function Home(props) {
         </Link>
       </main>
 
-      <footer className={styles.footer}>
-        Powered by{" "}
-        <Image
-          width={60}
-          height={20}
-          src="/caffeine.png"
-          alt="Caffeine Logo"
-          className={styles.logo}
-        />
-      </footer>
+      <footer className={styles.footer}>Powered by caffeine</footer>
     </div>
   );
 }
