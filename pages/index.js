@@ -4,6 +4,7 @@ import Link from "next/link";
 import { client } from "../prismic-configuration";
 import { RichText } from "prismic-reactjs";
 import Image from "next/image";
+import NavBar from "./components/navbar";
 
 export default function Home(props) {
   return (
@@ -11,30 +12,17 @@ export default function Home(props) {
       <Head>
         <title>{RichText.asText(props?.home?.data?.headline)}</title>
       </Head>
-      <div className={styles.nav}>
-        <Link href="/">
-          <a> Home </a>
-        </Link>{" "}
-        ~~~~~~
-        <Link href="/product">
-          <a> Product </a>
-        </Link>
-      </div>
+      <NavBar />
       <main className={styles.main}>
-        <h1 className={styles.title}>
+        <h1 className="text-gray-900 font-semibold text-6xl leading-tight">
           {RichText.asText(props?.home?.data?.headline)}
         </h1>
-        <p className={styles.description}>
+        <p className="text-gray-600 font-normal text-lg leading-thin">
           {RichText.asText(props?.home?.data?.description)}
         </p>
         <Link href="/product">
-          <a className={styles.footer}>Browse &rarr;</a>
+          <a className="text-gray-900 text-lg mt-6">Browse &rarr;</a>
         </Link>
-        <img
-          className={styles.heroImage}
-          src={props?.home?.data?.image?.url}
-          alt={props?.home?.data?.image?.alt}
-        />
       </main>
 
       <footer className={styles.footer}>

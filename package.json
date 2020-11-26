@@ -15,6 +15,9 @@
     "react-scroll": "^1.8.1"
   },
   "devDependencies": {
-    "prismic-javascript": "^3.0.2"
+    "@fullhuman/postcss-purgecss": "^3.0.0",
+    "autoprefixer": "^10.0.2",
+    "prismic-javascript": "^3.0.2",
+    "tailwindcss": "^1.9.6"
   }
 }

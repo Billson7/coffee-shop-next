@@ -5,6 +5,7 @@ import Image from "next/image";
 import { client } from "../prismic-configuration";
 import Prismic from "prismic-javascript";
 import { RichText } from "prismic-reactjs";
+import NavBar from "./components/navbar";
 
 export default function Shop(props) {
   return (
@@ -12,24 +13,17 @@ export default function Shop(props) {
       <Head>
         <title>{RichText.asText(props?.product?.data?.headline)}</title>
       </Head>
-      <div className={styles.nav}>
-        <Link href="/">
-          <a> Home </a>
-        </Link>{" "}
-        ~~~~~~
-        <Link href="/product">
-          <a> Product </a>
-        </Link>
-      </div>
+      <NavBar />
+
       <main className={styles.main}>
-        <h1 className={styles.title}>
+        <h1 className="text-gray-900 font-semibold text-6xl leading-tight">
           {RichText.asText(props?.product?.data?.headline)}
         </h1>
-        <p className={styles.description}>
+        <p className="text-gray-600 font-normal text-lg leading-thin">
           {RichText.asText(props?.product?.data?.description)}
         </p>
         <Link href="/">
-          <a className={styles.footer}>&larr; Return home</a>
+          <a className="text-gray-900 text-lg mt-6">&larr; Return home</a>
         </Link>
       </main>
 
@@ -38,10 +32,23 @@ export default function Shop(props) {
           <div key={post?.uid} className={styles.card}>
             <Link href={`/products/${post.uid}`}>
               <a>
-                <img width={300} height={300} src={post?.data?.image?.url} />
+                <img
+                  className="object-cover shadow-xl"
+                  src={post?.data?.image?.url}
+                />
+                <div className="p-6">
+                  <p className="font-semibold text-md leading-tight truncate">
+                    {RichText.asText(post?.data?.title)}
+                  </p>
+                  <p className="mt-1">
+                    £{post?.data?.price}{" "}
+                    <span className="text-gray-600 text-sm">/ per bag</span>
+                  </p>
 
-                <p>{RichText.asText(post?.data?.title)}</p>
-                <p>More information &rarr;</p>
+                  <p className="text-gray-900 text-sm mt-4">
+                    More information &rarr;
+                  </p>
+                </div>
               </a>
             </Link>
           </div>
