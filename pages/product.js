@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
 import styles from "../styles/Product.module.css";
-import Image from "next/image";
 import { client } from "../prismic-configuration";
 import Prismic from "prismic-javascript";
 import { RichText } from "prismic-reactjs";
@@ -35,6 +34,7 @@ export default function Shop(props) {
                 <img
                   className="object-cover shadow-xl"
                   src={post?.data?.image?.url}
+                  alt={post?.data?.image?.alt}
                 />
                 <div className="p-6">
                   <p className="font-semibold text-md leading-tight truncate">

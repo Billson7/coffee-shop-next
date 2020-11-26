@@ -3,7 +3,6 @@ import styles from "../styles/Home.module.css";
 import Link from "next/link";
 import { client } from "../prismic-configuration";
 import { RichText } from "prismic-reactjs";
-import Image from "next/image";
 import NavBar from "./components/navbar";
 
 export default function Home(props) {

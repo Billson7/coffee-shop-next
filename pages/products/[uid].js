@@ -5,7 +5,6 @@ import { RichText } from "prismic-reactjs";
 import Prismic from "prismic-javascript";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import Image from "next/image";
 import NavBar from "../components/navbar";
 
 function Product(props) {
