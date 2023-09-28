@@ -8,7 +8,7 @@ export default function NavBar() {
         <div className="inline-block text-gray-700 text-center px-4 py-2 m-2">
           <Link href="/">
             <a> Home </a>
-          </Link>{" "}
+          </Link>
         </div>
         |
         <div className="inline-block text-gray-700 text-center px-4 py-2 m-2">

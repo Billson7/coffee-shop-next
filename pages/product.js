@@ -13,7 +13,6 @@ export default function Shop(props) {
         <title>{RichText.asText(props?.product?.data?.headline)}</title>
       </Head>
       <NavBar />
-
       <main className={styles.main}>
         <h1 className="text-gray-900 font-semibold text-6xl leading-tight">
           {RichText.asText(props?.product?.data?.headline)}
@@ -25,7 +24,6 @@ export default function Shop(props) {
           <a className="text-gray-900 text-lg mt-6">&larr; Return home</a>
         </Link>
       </main>
-
       <div className={styles.grid}>
         {props?.posts?.results.map((post) => (
           <div key={post?.uid} className={styles.card}>
@@ -54,7 +52,6 @@ export default function Shop(props) {
           </div>
         ))}
       </div>
-
       <footer className={styles.footer}>Powered by caffeine</footer>
     </div>
   );
