@@ -21,3 +21,4 @@ a {
 @tailwind components;
 /* purgecss end ignore */
 @tailwind utilities;
+@import "tailwindcss";
