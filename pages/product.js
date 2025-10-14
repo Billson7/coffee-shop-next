@@ -20,14 +20,14 @@ export default function Shop(props) {
         <p className="text-gray-600 font-normal text-lg leading-thin">
           {RichText.asText(props?.product?.data?.description)}
         </p>
-        <Link href="/">
+        <Link href="/" legacyBehavior>
           <a className="text-gray-900 text-lg mt-6">&larr; Return home</a>
         </Link>
       </main>
       <div className={styles.grid}>
         {props?.posts?.results.map((post) => (
           <div key={post?.uid} className={styles.card}>
-            <Link href={`/products/${post.uid}`}>
+            <Link href={`/products/${post.uid}`} legacyBehavior>
               <a>
                 <img
                   className="object-cover shadow-xl"

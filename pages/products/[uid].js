@@ -50,7 +50,7 @@ function Product(props) {
             </p>
           </div>
 
-          <Link href={`/product/`}>
+          <Link href={`/product/`} legacyBehavior>
             <a>
               <div className="text-gray-600 text-sm mt-6">
                 &larr; Return to Products

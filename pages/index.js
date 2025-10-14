@@ -19,7 +19,7 @@ export default function Home(props) {
         <p className="text-gray-600 font-normal text-lg leading-thin">
           {RichText.asText(props?.home?.data?.description)}
         </p>
-        <Link href="/product">
+        <Link href="/product" legacyBehavior>
           <a className="text-gray-900 text-lg mt-6">Browse &rarr;</a>
         </Link>
       </main>

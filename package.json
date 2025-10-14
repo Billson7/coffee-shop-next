@@ -1,6 +1,6 @@
 {
   "name": "next-practise",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -8,16 +8,17 @@
     "start": "next start"
   },
   "dependencies": {
-    "next": "^10.0.0",
-    "prismic-reactjs": "^1.3.3",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scroll": "^1.8.1"
+    "@tailwindcss/postcss": "^4.0.0",
+    "next": "^15.1.6",
+    "prismic-reactjs": "^1.3.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-scroll": "^1.9.0"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^3.0.0",
-    "autoprefixer": "^10.0.2",
+    "@fullhuman/postcss-purgecss": "^7.0.2",
+    "autoprefixer": "^10.4.20",
     "prismic-javascript": "^3.0.2",
-    "tailwindcss": "^1.9.6"
+    "tailwindcss": "^4.0.0"
   }
 }
